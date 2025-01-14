@@ -4,16 +4,25 @@
     <title>Forest Flashcards</title>
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin: 0;
-            padding: 20px;
-            background: linear-gradient(to bottom, #56ab2f, #a8e063);
-            font-family: 'Arial', sans-serif;
-            color: #fff;
+             display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(to bottom, #56ab2f, #a8e063);
+    background-repeat: no-repeat; /* Prevent background repetition */
+    background-size: cover; /* Ensure the background covers the entire screen */
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+	height: 100%;
         }
+		
+		html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
         .container {
             text-align: center;
@@ -23,6 +32,7 @@
             background-color: rgba(0, 0, 0, 0.2);
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
             padding: 20px;
+
         }
 
         h1 {
