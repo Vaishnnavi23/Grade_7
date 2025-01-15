@@ -10,8 +10,7 @@
       margin: 0;
       padding: 0;
       background-image: url('https://source.unsplash.com/1600x900/?education');
-	  background-repeat: no-repeat; /* Prevent background repetition */
-      background-size: cover; /* Ensure the background covers the entire screen */
+      background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -40,10 +39,10 @@
     }
 
     select, button {
-      width: 100%;
-      padding: 10px 15px;
+      width: 80%;
+      padding: 8px 12px;
       margin: 10px 0;
-      font-size: 16px;
+      font-size: 14px;
       border: 1px solid #ccc;
       border-radius: 5px;
       background: #ecf0f1;
@@ -53,7 +52,7 @@
 
     select:focus, button:hover {
       background-color: #bdc3c7;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
       transform: translateY(-2px);
     }
 
@@ -61,6 +60,7 @@
       color: #fff;
       background-color: #3498db;
       border: none;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 -3px 6px rgba(0, 0, 0, 0.2);
     }
 
     button:hover {
@@ -69,6 +69,7 @@
 
     button:active {
       transform: scale(0.98);
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15), inset 0 -1px 4px rgba(0, 0, 0, 0.3);
     }
 
     .hidden {
@@ -107,7 +108,9 @@
 
     <div id="lessonsMenu" class="menu hidden">
       <h2 id="subjectName">Lessons</h2>
-      <button onclick="showActivities()">Forest: Our Life Line</button>
+      <div id="forestLesson" class="hidden">
+        <button onclick="showActivities()">Forest: Our Life Line</button>
+      </div>
     </div>
 
     <div id="activitiesMenu" class="menu hidden">
@@ -129,16 +132,24 @@
         subjectsMenu.classList.add('hidden');
         document.getElementById('lessonsMenu').classList.add('hidden');
         document.getElementById('activitiesMenu').classList.add('hidden');
+        document.getElementById('forestLesson').classList.add('hidden');
       }
     }
 
     function showLessons(subject) {
       const lessonsMenu = document.getElementById('lessonsMenu');
       const subjectName = document.getElementById('subjectName');
+      const forestLesson = document.getElementById('forestLesson');
 
       subjectName.textContent = `Lessons in ${subject}`;
       lessonsMenu.classList.remove('hidden');
       document.getElementById('activitiesMenu').classList.add('hidden');
+
+      if (subject === 'Social') {
+        forestLesson.classList.remove('hidden');
+      } else {
+        forestLesson.classList.add('hidden');
+      }
     }
 
     function showActivities() {
