@@ -6,74 +6,127 @@
   <title>Grade Selection</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background-image: url('https://source.unsplash.com/1600x900/?education');
+      background-image: linear-gradient(to bottom right, #74b9ff, #a29bfe);
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      color: #333;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       overflow: hidden;
+      color: #fff;
     }
 
     .container {
       width: 90%;
-      max-width: 600px;
-      background: rgba(255, 255, 255, 0.9);
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      max-width: 700px;
+      background: rgba(0, 0, 0, 0.75);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
       text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     h1, h2 {
       margin-bottom: 20px;
-      color: #2c3e50;
-      font-weight: 700;
+      color: #ecf0f1;
+      font-weight: bold;
     }
 
     select, button {
-      width: 80%;
+      display: inline-block;
       padding: 8px 12px;
-      margin: 10px 0;
+      margin: 5px;
       font-size: 14px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      background: #ecf0f1;
+      border: none;
+      border-radius: 20px;
       cursor: pointer;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      background: linear-gradient(to right, #6a89cc, #82ccdd);
+      color: white;
+      text-transform: capitalize;
+      white-space: nowrap; /* Prevent text wrapping */
     }
 
-    select:focus, button:hover {
-      background-color: #bdc3c7;
-      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-      transform: translateY(-2px);
+    select {
+      width: 80%;
+      font-size: 16px;
+      background: #a29bfe;
+    }
+
+    select:focus {
+      outline: none;
+      background: #81ecec;
+      color: black;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
     button {
-      color: #fff;
-      background-color: #3498db;
-      border: none;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 -3px 6px rgba(0, 0, 0, 0.2);
+      min-width: 120px;
+      font-size: 13px;
     }
 
     button:hover {
-      background-color: #2980b9;
+      background: linear-gradient(to right, #45aaf2, #32ff7e);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
     }
 
     button:active {
-      transform: scale(0.98);
-      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15), inset 0 -1px 4px rgba(0, 0, 0, 0.3);
+      transform: translateY(1px);
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
     }
 
     .hidden {
       display: none;
+    }
+
+    .scrollable-buttons {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-start;
+      overflow-x: auto;
+      padding: 10px 0;
+    }
+
+    .scrollable-buttons::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .scrollable-buttons::-webkit-scrollbar-thumb {
+      background: #3498db;
+      border-radius: 5px;
+    }
+
+    .scrollable-buttons::-webkit-scrollbar-track {
+      background: #2c3e50;
+    }
+
+    @media (max-width: 600px) {
+      h1, h2 {
+        font-size: 18px;
+      }
+      button {
+        min-width: 100px;
+      }
     }
   </style>
 </head>
@@ -88,78 +141,4 @@
         <option value="7">Grade 7</option>
         <option value="1">Grade 1</option>
         <option value="2">Grade 2</option>
-        <option value="3">Grade 3</option>
-        <option value="4">Grade 4</option>
-        <option value="5">Grade 5</option>
-        <option value="6">Grade 6</option>
-        <option value="8">Grade 8</option>
-        <option value="9">Grade 9</option>
-        <option value="10">Grade 10</option>
-      </select>
-    </div>
-
-    <div id="subjectsMenu" class="menu hidden">
-      <h2>Subjects for Grade 7</h2>
-      <button onclick="showLessons('Social')">Social</button>
-      <button onclick="showLessons('English')">English</button>
-      <button onclick="showLessons('Science')">Science</button>
-      <button onclick="showLessons('Math')">Math</button>
-    </div>
-
-    <div id="lessonsMenu" class="menu hidden">
-      <h2 id="subjectName">Lessons</h2>
-      <div id="forestLesson" class="hidden">
-        <button onclick="showActivities()">Forest: Our Life Line</button>
-      </div>
-    </div>
-
-    <div id="activitiesMenu" class="menu hidden">
-      <h2>Activities for "Forest: Our Life Line"</h2>
-      <button onclick="navigateToFlashcard()">Flashcard</button>
-      <button>Quiz</button>
-      <button>Worksheet</button>
-    </div>
-  </div>
-
-  <script>
-    function showSubjects() {
-      const gradeSelect = document.getElementById('gradeSelect');
-      const subjectsMenu = document.getElementById('subjectsMenu');
-
-      if (gradeSelect.value === '7') {
-        subjectsMenu.classList.remove('hidden');
-      } else {
-        subjectsMenu.classList.add('hidden');
-        document.getElementById('lessonsMenu').classList.add('hidden');
-        document.getElementById('activitiesMenu').classList.add('hidden');
-        document.getElementById('forestLesson').classList.add('hidden');
-      }
-    }
-
-    function showLessons(subject) {
-      const lessonsMenu = document.getElementById('lessonsMenu');
-      const subjectName = document.getElementById('subjectName');
-      const forestLesson = document.getElementById('forestLesson');
-
-      subjectName.textContent = `Lessons in ${subject}`;
-      lessonsMenu.classList.remove('hidden');
-      document.getElementById('activitiesMenu').classList.add('hidden');
-
-      if (subject === 'Social') {
-        forestLesson.classList.remove('hidden');
-      } else {
-        forestLesson.classList.add('hidden');
-      }
-    }
-
-    function showActivities() {
-      const activitiesMenu = document.getElementById('activitiesMenu');
-      activitiesMenu.classList.remove('hidden');
-    }
-
-    function navigateToFlashcard() {
-      window.location.href = 'flashcard.html';
-    }
-  </script>
-</body>
-</html>
+     
