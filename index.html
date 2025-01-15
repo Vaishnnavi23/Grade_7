@@ -5,27 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Grade Selection</title>
   <style>
+   
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-image: linear-gradient(to bottom right, #74b9ff, #a29bfe);
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-      color: #fff;
-      background-repeat: no-repeat; /* Prevent background repetition */
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(to bottom, #56ab2f, #a8e063);
+    background-repeat: no-repeat; /* Prevent background repetition */
     background-size: cover; /* Ensure the background covers the entire screen */
     font-family: 'Arial', sans-serif;
-	background: url('https://img.freepik.com/free-vector/education-background-with-lined-icons_1416-244.jpg?t=st=1736918470~exp=1736922070~hmac=619af2168a84d14bad45ac701d2e134c875ffb480528e06172e7cf1d2bad426a&w=740.jpg') no-repeat center center fixed;
+	background: url('https://img.freepik.com/free-vector/flat-pattern-design-back-school-season_23-2150608577.jpg') no-repeat center center fixed;
   background-size: cover;
-    }
+	
+    color: #fff;
+	height: 100%;
+}
 
     .container {
       width: 90%;
@@ -69,6 +66,7 @@
       color: white;
       text-transform: capitalize;
       white-space: nowrap; /* Prevent text wrapping */
+	  
     }
 
     select {
@@ -110,6 +108,8 @@
       justify-content: flex-start;
       overflow-x: auto;
       padding: 10px 0;
+	  justify-content: center; /* Centers horizontally */
+	  align-items: center; /* Centers vertically */
     }
 
     .scrollable-buttons::-webkit-scrollbar {
@@ -158,11 +158,13 @@
 
     <div id="subjectsMenu" class="menu hidden">
       <h2>Subjects for Grade 7</h2>
-      <div class="scrollable-buttons">
+      <div class="scrollable-buttons" align=center>
+	
         <button onclick="showLessons('Social')">Social</button>
         <button onclick="showLessons('English')">English</button>
         <button onclick="showLessons('Science')">Science</button>
         <button onclick="showLessons('Math')">Math</button>
+		
       </div>
     </div>
 
@@ -177,8 +179,9 @@
       <h2>Activities for "Forest: Our Life Line"</h2>
       <div class="scrollable-buttons">
         <button onclick="navigateToFlashcard()">Flashcard</button>
-        <button>Quiz</button>
-        <button>Worksheet</button>
+        <button onclick="window.location.href='https://quizizz.com/admin/quiz/6785df2777ddfd00a046b2c2;">Quiz</button>
+		 <button onclick="onclick="window.open('/Forest - Our Lifeline.pdf', '_blank');">Worksheet</button>
+        
       </div>
     </div>
   </div>
